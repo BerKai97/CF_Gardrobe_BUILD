@@ -103,6 +103,7 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+          unityGame = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
@@ -113,5 +114,7 @@
       };
       document.body.appendChild(script);
     </script>
+    <div onclick="unityGame.SendMessage('Chars','setChar','Char1')">SetChar1</div>
+    <div onclick="unityGame.SendMessage('Chars','setChar','Char2')">SetChar2</div>
   </body>
 </html>
